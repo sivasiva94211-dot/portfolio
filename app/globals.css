@@ -53,32 +53,76 @@ button:focus-visible,
 
 @layer components {
   .glass-panel {
-    @apply bg-card/60 backdrop-blur-xl border border-border rounded-2xl;
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: 1rem;
   }
 
   .glass-panel-hover {
-    @apply transition-all duration-300 hover:border-primary-light/40 hover:bg-card/80;
+    transition: all 0.3s ease;
+  }
+
+  .glass-panel-hover:hover {
+    border-color: rgba(45, 212, 191, 0.4);
+    background-color: rgba(15, 23, 42, 0.8);
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-light via-secondary-light to-accent-light;
+    background-image: linear-gradient(90deg, #7dd3fc, #a78bfa, #f9a8d4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-full px-6 py-3 font-medium text-sm text-white
-      bg-gradient-to-r from-primary to-secondary
-      shadow-[0_0_24px_-6px_rgba(139,92,246,0.6)]
-      transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98];
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #fff;
+    background-image: linear-gradient(90deg, #4f46e5, #8b5cf6);
+    box-shadow: 0 0 24px -6px rgba(139, 92, 246, 0.6);
+    transition: transform 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.03);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.98);
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-2 rounded-full px-6 py-3 font-medium text-sm text-ink
-      border border-border bg-white/[0.02] backdrop-blur-sm
-      transition-all duration-300 hover:border-accent/50 hover:text-white hover:bg-white/[0.05];
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #e2e8f0;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    background-color: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline:hover {
+    border-color: rgba(45, 212, 191, 0.5);
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.05);
   }
 
   .section-label {
-    @apply text-sm font-medium tracking-wide text-accent-light/90;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: rgba(125, 211, 252, 0.9);
   }
 }
 
