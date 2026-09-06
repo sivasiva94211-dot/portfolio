@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-padding-top: 88px;
+}
+
+body {
+  background-color: #020617;
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+/* Section anchors sit under the sticky navbar */
+section[id] {
+  scroll-margin-top: 88px;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+  color: #f8fafc;
+}
+
+/* Thin, quiet scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+  border-radius: 999px;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-card/60 backdrop-blur-xl border border-border rounded-2xl;
+  }
+
+  .glass-panel-hover {
+    @apply transition-all duration-300 hover:border-primary-light/40 hover:bg-card/80;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-light via-secondary-light to-accent-light;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full px-6 py-3 font-medium text-sm text-white
+      bg-gradient-to-r from-primary to-secondary
+      shadow-[0_0_24px_-6px_rgba(139,92,246,0.6)]
+      transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 rounded-full px-6 py-3 font-medium text-sm text-ink
+      border border-border bg-white/[0.02] backdrop-blur-sm
+      transition-all duration-300 hover:border-accent/50 hover:text-white hover:bg-white/[0.05];
+  }
+
+  .section-label {
+    @apply text-sm font-medium tracking-wide text-accent-light/90;
+  }
+}
+
+/* Respect users who've asked for less motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
